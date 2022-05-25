@@ -10,7 +10,8 @@ public class UserModel {
     }
 
     public static boolean checkPassword(String userId, String password, String salt, String encode_password) {
-        return EncodePassword(userId, password, salt).equals(encode_password);
+        String p = EncodePassword(userId, password, salt);
+        return p.equals(encode_password);
     }
 
     public static boolean checkRoles(String groupId) {

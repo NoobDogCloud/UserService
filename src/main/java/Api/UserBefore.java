@@ -17,7 +17,8 @@ public class UserBefore extends RpcBefore {
                             return FilterReturn.fail("输入的2次密码不一致");
                         }
                         String salt = StringHelper.randomString(8);
-                        data.put("password", UserModel.EncodePassword(info.getString("user_id"), info.getString("password"), salt));
+                        String encode_password = UserModel.EncodePassword(info.getString("user_id"), info.getString("password"), salt);
+                        data.put("password", encode_password).put("salt", salt);
                         return FilterReturn.success();
                     })
                     .filterUnique("user_id", line -> {

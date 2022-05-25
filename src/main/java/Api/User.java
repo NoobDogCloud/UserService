@@ -10,6 +10,9 @@ import org.json.gsc.JSONObject;
 public class User extends MicroServiceTemplate {
     public User() {
         super("user");
+        setApiTokenSender((serviceName, className, actionName, code) -> {
+            System.out.println("serviceName: " + serviceName + "/" + className + "/" + actionName + "/" + code);
+        });
     }
 
     /**
