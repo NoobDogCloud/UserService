@@ -20,9 +20,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>gfw</groupId>
-            <artifactId>gfwCore</artifactId>
-            <version>3.0.0</version>
+            <groupId>io.github.noobdogcloud</groupId>
+            <artifactId>SDK</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->

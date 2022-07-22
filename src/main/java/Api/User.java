@@ -10,6 +10,7 @@ import org.json.gsc.JSONObject;
 public class User extends MicroServiceTemplate {
     public User() {
         super();
+        // 设置验证码发送处理函数
         setApiTokenSender((serviceName, className, actionName, code) -> {
             System.out.println("serviceName: " + serviceName + "/" + className + "/" + actionName + "/" + code);
         });
@@ -31,4 +32,6 @@ public class User extends MicroServiceTemplate {
         }
         return JwtInfo.build(user_id).encodeJwt(userInfo).toString();
     }
+
+
 }
