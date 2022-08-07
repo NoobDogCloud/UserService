@@ -20,7 +20,7 @@ public class User extends MicroServiceTemplate {
      * 用户登录接口
      */
     @InterfaceType(InterfaceType.type.OauthApi)
-    public Object verify(String user_id, String password) {
+    public Object login(String user_id, String password) {
         JSONObject userInfo = db.eq("user_id", user_id).find();
         if (JSONObject.isInvalided(userInfo)) {
             return RpcMessage.Instant(false, "当前用户不存在!");
@@ -32,6 +32,4 @@ public class User extends MicroServiceTemplate {
         }
         return JwtInfo.build(user_id).encodeJwt(userInfo).toString();
     }
-
-
 }
