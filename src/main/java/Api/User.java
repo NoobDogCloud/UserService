@@ -1,7 +1,6 @@
 package main.java.Api;
 
 import Model.UserModel;
-import common.java.InterfaceModel.Type.InterfaceType;
 import common.java.Jwt.JwtInfo;
 import common.java.Rpc.RpcMessage;
 import common.java.ServiceTemplate.MicroServiceTemplate;
@@ -11,15 +10,15 @@ public class User extends MicroServiceTemplate {
     public User() {
         super();
         // 设置验证码发送处理函数
-        setApiTokenSender((serviceName, className, actionName, code) -> {
-            System.out.println("serviceName: " + serviceName + "/" + className + "/" + actionName + "/" + code);
-        });
+//        setApiTokenSender((serviceName, className, actionName, code) -> {
+//            System.out.println("serviceName: " + serviceName + "/" + className + "/" + actionName + "/" + code);
+//        });
     }
 
     /**
      * 用户登录接口
      */
-    @InterfaceType(InterfaceType.type.OauthApi)
+    // @InterfaceType(InterfaceType.type.OauthApi)
     public Object login(String user_id, String password) {
         JSONObject userInfo = db.eq("user_id", user_id).find();
         if (JSONObject.isInvalided(userInfo)) {

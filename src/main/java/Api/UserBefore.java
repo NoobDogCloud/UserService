@@ -21,7 +21,7 @@ public class UserBefore extends RpcBefore {
                         data.put("password", encode_password).put("salt", salt);
                         return FilterReturn.success();
                     })
-                    .filterUnique("user_id", line -> {
+                    .filterUnique("user_id", "_id", line -> {
                         var api = new User();
                         return api.getPureDB().limit(2).eq("user_id", line.getString("user_id")).select();
                     })
@@ -36,7 +36,7 @@ public class UserBefore extends RpcBefore {
             // 删除密码重复块
             data.remove("password1");
             return FilterReturn.success();
-        }).lock();
+        });
 
     }
 }
